@@ -1,0 +1,58 @@
+﻿@model FestivalRegistratie.Models.Reservation
+
+@{
+    ViewBag.Title = "Reserve";
+}
+<h2>Reserve</h2>
+
+@using (Html.BeginForm("Create", "Order")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Reservation</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FirstName)
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Number)
+        </div>
+        <div class="editor-field">
+            <input id="Number" name="Number" type="number" value="1" min="1" max="@Model.Ticket.Available" />
+            @Html.ValidationMessageFor(model => model.Number)
+        </div>
+
+        <p>
+            <input type="hidden" id="Id" name="Id" value="@Model.Ticket.Id" />
+            <input type="submit" value="Reserveer" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

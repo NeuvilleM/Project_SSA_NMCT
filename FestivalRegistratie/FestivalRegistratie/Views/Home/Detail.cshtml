@@ -1,0 +1,45 @@
+﻿@model FestivalRegistratie.Models.Artist
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<fieldset>
+    <legend>Artist</legend>
+
+    <img src="@Html.DisplayFor(model => model.Picture)" width="250px" />
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Naam)
+    </div>
+    <div class="display-field" id="DetailArtistName">
+        @Html.DisplayFor(model => model.Naam)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field" id="DetailArtistName">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Twitter)
+    </div>
+    <div class="display-field" >
+        <a href="http://www.twitter.com/@Html.DisplayFor(model => model.Twitter)">@Html.DisplayFor(model => model.Twitter)</a>
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Facebook)
+    </div>
+    <div class="display-field">
+        <a href="http://www.facebook.com/@Html.DisplayFor(model => model.Facebook)">@Html.DisplayFor(model => model.Facebook)</a>
+
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

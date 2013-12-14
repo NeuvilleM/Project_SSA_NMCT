@@ -1,0 +1,24 @@
+﻿@using FestivalRegistratie.Models
+@model List<FestivalRegistratie.Models.Stage>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Line Up</h2>
+@foreach (Stage s in Model)
+{
+    <fieldset class="Stage">
+    <legend>@s.Naam</legend>
+        <h3>@s.Naam</h3>
+    @foreach (lineup l in s.Linups)
+	{
+		 <div class="lineup">
+           <a href="/Home/Detail/?ArtistID=@l.Artist.ID" name="ArtistID"><img src="@l.Artist.Picture" alt="@l.Artist.ID" width="175px" /></a>
+             <label>@l.Artist.Naam </label>
+             <label>@l.DateOfPlay : @l.Start - @l.Einde</label>
+         </div>
+	}
+</fieldset>
+}
