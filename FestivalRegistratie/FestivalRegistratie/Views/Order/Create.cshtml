@@ -4,12 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Bestelling:</h2>
 
 <fieldset>
     <legend>Reservation</legend>
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FirstName)
+         @*@Html.DisplayNameFor(model => model.FirstName)*@
+        Voornaam:
         
     </div>
     <div class="display-field">
@@ -17,27 +18,34 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LastName)
+         Achternaam:@*@Html.DisplayNameFor(model => model.LastName)*@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.LastName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
+        Email:
+         @*@Html.DisplayNameFor(model => model.Email)*@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Email)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Number)
+        Aantal:
+        @* @Html.DisplayNameFor(model => model.Number)*@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Number)
     </div>
+    <div class="display-label">
+        Ticket:
+    </div>
+    <div>
+        @Html.DisplayFor(model => model.Ticket.Name)
+    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

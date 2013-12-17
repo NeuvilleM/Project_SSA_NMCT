@@ -7,6 +7,7 @@ namespace FestivalRegistratie.Models
 {
 	public class Reservation
 	{
+        public string ID { get; set; }
         public TicketType Ticket { get; set; }
         public string FirstName { get; set; }
         public String LastName { get; set; }

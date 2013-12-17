@@ -32,7 +32,9 @@
             @Html.DisplayFor(modelItem => item.Available)
         </td>
         <td>
+            @if(Convert.ToInt32(item.Available) >0){
             @Html.ActionLink("Reserveer", "Reserve", new {id = item.Id })
+            }
         </td>
     </tr>
 }

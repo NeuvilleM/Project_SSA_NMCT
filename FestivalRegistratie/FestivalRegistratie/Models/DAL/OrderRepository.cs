@@ -23,6 +23,7 @@ namespace FestivalRegistratie.Models.DAL
         private static TicketType MakeTicket(DbDataReader typesreader)
         {
             TicketType t = new TicketType();
+            t.Id = typesreader["Id"].ToString();
             t.Available = typesreader["Available"].ToString();
             t.Id = typesreader["Id"].ToString();
             t.Name = typesreader["TicketName"].ToString();
@@ -34,7 +35,7 @@ namespace FestivalRegistratie.Models.DAL
         }
         public static int NumberOfReservedTickets(string TicketID)
         {
-            string sql = "SELECT COUNT(Id) AS NumberOfReservedTickets FROM orderedtickets WHERE TicketType = @tID";
+            string sql = "SELECT SUM(Number) AS NumberOfReservedTickets FROM orderedtickets WHERE TicketType = @tID";
             DbParameter tID = Database.AddParameter("@tID", TicketID);
             DbDataReader reader = Database.GetData(sql, tID);
             reader.Read();

@@ -9,6 +9,13 @@ namespace FestivalRegistratie.Models.DAL
 {
     public class StageRepository
     {
+        public List<Stage> stages { get; set; }
+        public List<String> days { get; set; }
+        public StageRepository()
+        {
+            stages = GetStages();
+            days = FestivalRepository.datesFestival();
+        }
         public static List<Stage> GetStages()
         {   //inladen alle stages
             List<Stage> stages = new List<Stage>();
@@ -43,7 +50,8 @@ namespace FestivalRegistratie.Models.DAL
         private static lineup GetLineup(DbDataReader lineupreader)
         {
             lineup l = new lineup();
-            l.DateOfPlay = lineupreader["DateOfPlay"].ToString();
+            DateTime dt = Convert.ToDateTime(lineupreader["DateOfPlay"].ToString());
+            l.DateOfPlay = dt.ToShortDateString();
             l.Einde = lineupreader["Einde"].ToString();
             l.StageId = lineupreader["Stage"].ToString();
             l.Start = lineupreader["Start"].ToString();

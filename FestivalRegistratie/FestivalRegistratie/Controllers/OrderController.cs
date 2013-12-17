@@ -32,7 +32,12 @@ namespace FestivalRegistratie.Controllers
             string UserName = User.Identity.Name;
             viewModel = OrderRepository.UpdateReservationWithUserData(UserName, Id);
             // de gebruiker heeft de mogelijkheid om zijn bevestiging door te sturen
-            return View("Reserve", viewModel);
+            if (Convert.ToInt32(viewModel.Ticket.Available) > 0)
+            {
+                return View("Reserve", viewModel);
+            }
+            return Index();
+
         }
         public ActionResult Create(string Number, string Id)
         {
@@ -41,6 +46,13 @@ namespace FestivalRegistratie.Controllers
             var viewModel = r;
             
             return View("Create", r);
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult Overview()
+        {
+            var viewModel = new List<Reservation>();
+            viewModel = ReservationRepository.GetReservations();
+            return View("Overview", viewModel);
         }
 
     }

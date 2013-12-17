@@ -12,8 +12,8 @@ namespace FestivalRegistratie.Controllers
     {
         public ActionResult Index()
         {
-            var viewModel = new List<Stage>();
-            viewModel = StageRepository.GetStages();
+            var viewModel = new StageRepository();
+            //viewModel = StageRepository.GetStages();
             return View("Index", viewModel);
         }
         public ActionResult Detail(string ArtistID)
@@ -25,6 +25,8 @@ namespace FestivalRegistratie.Controllers
             {
                 viewModel = StageRepository.GetArtistById(ArtistID);
             }
+            ViewBag.days = new List<String>();
+            ViewBag.days = FestivalRepository.datesFestival();
             return View("Detail", viewModel);
         }
         public ActionResult About()

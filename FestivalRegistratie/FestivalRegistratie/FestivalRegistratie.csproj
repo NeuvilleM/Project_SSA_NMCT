@@ -193,8 +193,11 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\DAL\FestivalRepository.cs" />
     <Compile Include="Models\DAL\OrderRepository.cs" />
+    <Compile Include="Models\DAL\ReservationRepository.cs" />
     <Compile Include="Models\DAL\StageRepository.cs" />
+    <Compile Include="Models\Festival.cs" />
     <Compile Include="Models\lineup.cs" />
     <Compile Include="Models\Stage.cs" />
     <Compile Include="Models\TicketType.cs" />
@@ -316,6 +319,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Order\Reserve.cshtml" />
+    <Content Include="Views\Order\Overview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿@using FestivalRegistratie.Models
-@model List<FestivalRegistratie.Models.Stage>
+@model FestivalRegistratie.Models.DAL.StageRepository
 
 
 @{
@@ -7,7 +7,22 @@
 }
 
 <h2>Line Up</h2>
-@foreach (Stage s in Model)
+Zoek op: 
+<select name="stage">
+    <option value="all">---zie alles---</option>
+    @foreach (Stage s in Model.stages)
+    { 
+        <option value="@s.ID">@s.Naam</option>
+    }
+</select>
+<select name="days">
+    <option value="all">--zie alles</option>
+    @foreach (String s in Model.days)
+    { 
+        <option value="@s">@s</option>
+    }
+</select>
+@foreach (Stage s in Model.stages)
 {
     <fieldset class="Stage">
     <legend>@s.Naam</legend>
