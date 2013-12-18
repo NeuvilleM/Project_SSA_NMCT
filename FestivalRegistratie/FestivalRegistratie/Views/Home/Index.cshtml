@@ -8,20 +8,24 @@
 
 <h2>Line Up</h2>
 Zoek op: 
+@using (Html.BeginForm("Index", "Home")) { 
 <select name="stage">
     <option value="all">---zie alles---</option>
-    @foreach (Stage s in Model.stages)
+    @foreach (Stage s in Model.stagesDropDown)
     { 
         <option value="@s.ID">@s.Naam</option>
     }
 </select>
 <select name="days">
-    <option value="all">--zie alles</option>
+    <option value="all">---zie alles---</option>
     @foreach (String s in Model.days)
     { 
         <option value="@s">@s</option>
     }
 </select>
+<button type="submit" >Zoek</button>
+}
+Voor meer informatie over een artiest, klik op de foto.
 @foreach (Stage s in Model.stages)
 {
     <fieldset class="Stage">
@@ -30,7 +34,7 @@ Zoek op:
     @foreach (lineup l in s.Linups)
 	{
 		 <div class="lineup">
-           <a href="/Home/Detail/?ArtistID=@l.Artist.ID" name="ArtistID"><img src="@l.Artist.Picture" alt="@l.Artist.ID" width="175px" /></a>
+           <div class="lineupImage"><a href="/Home/Detail/?ArtistID=@l.Artist.ID" name="ArtistID"><img src="@l.Artist.Picture" alt="@l.Artist.ID" width="175px" /></a></div>
              <label>@l.Artist.Naam </label>
              <label>@l.DateOfPlay : @l.Start - @l.Einde</label>
          </div>

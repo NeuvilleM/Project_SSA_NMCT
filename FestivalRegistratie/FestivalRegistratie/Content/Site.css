@@ -1,13 +1,13 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #FFF0A5;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
+    background-color: #468966;
     border-top: solid 10px #000;
-    color: #333;
+    color: #000;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-    color: #333;
+    color: #8E2800;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -24,7 +24,7 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: #000;
     }
 
     a:hover {
@@ -95,11 +95,11 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 880px;
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #E2F0D6;
     clear: both;
     padding-bottom: 35px;
 }
@@ -116,13 +116,15 @@ h5, h6 {
 
 header .content-wrapper {
     padding-top: 20px; 
+    color: #F6FFE0;
 }
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: #468966;
     font-size: .8em;
     height: 100px;
+    color:#F6FFE0;
 }
 
 
@@ -137,10 +139,36 @@ footer {
 
 .site-title a, .site-title a:hover, .site-title a:active {
     background: none;
-    color: #c8c8c8;
+    color: #F6FFE0;
     outline: none;
     text-decoration: none;
 }
+.stage {
+    margin:10px;
+
+}
+.lineup {
+    position:relative;
+    float: left;
+    width: 230px;
+    height: 250px;
+    margin: 4px 7px 2px 4px;
+    overflow:hidden;
+    background-color: #E2F0D6;
+}
+.lineupImage {
+    width: 230px;
+    height: 188px;
+    overflow: hidden;
+}
+    .lineupImage img {
+   /* width: 250px;*/
+   height: 188px;
+   width: auto;
+    }
+    /*position:relative;
+    float:left;*/
+    }
 
 
 /* login
@@ -150,14 +178,16 @@ footer {
     font-size: .85em;
     margin: 0 0 10px;
     text-align: right;
+    color: #F6FFE0;
 }
 
     #login a {
-        background-color: #d3dce0;
+        /*background-color: #95AB63;*/
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
         text-decoration: none;
+        color: #F6FFE0;
     }
 
     #login a.username {
@@ -195,7 +225,7 @@ ul#menu {
 
         ul#menu li a {
             background: none;
-            color: #999;
+            color: #F6FFE0;
             text-decoration: none;
         }
 
@@ -330,7 +360,7 @@ aside {
 
 /* login page */
 #loginForm {
-    border-right: solid 2px #c8c8c8;
+    /*border-right: solid 2px #c8c8c8;*/
     float: left;
     width: 55%;
 }
@@ -455,9 +485,9 @@ textarea {
         background-color: #d3dce0;
         border: 1px solid #787878;
         cursor: pointer;
-        font-size: 1.2em;
+        font-size: 0.89em;
         font-weight: 600;
-        padding: 7px;
+        padding: 4px;
         margin-right: 8px;
         width: auto;
     }
@@ -469,6 +499,9 @@ textarea {
         padding: 4px;
         margin-right: 4px;
     }
+select {
+    padding:2px;
+}
 
 /* info and errors */
 .message-info {
@@ -597,6 +630,7 @@ tr.pager td {
     header .float-left,
     header .float-right {
         float: none;
+        
     }
 
     /* logo */

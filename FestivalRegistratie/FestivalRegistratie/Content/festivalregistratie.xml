@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <generator>RSS Builder by B!Soft</generator>
+    <title>FestivalApp</title>
+    <link>http://localhost:28575/</link>
+    <description>Updates voor ons festival</description>
+    <language>nl-be</language>
+    <item>
+      <title>Arctic Monkeys Onzeker</title>
+      <pubDate>wo, 18 dec 2013 12:03:02 +0100</pubDate>
+      <description><![CDATA[Volgens de laatste geruchten ging het niet goed bij Arctic Monkeys, daarom gingen wij zelf op onderzoek uit. HEADLINER: geruchten zijn onwaar, Arctic Monkeys gaan niet uit elkaar, integendeel ze zijn zelfs opzoek naar een extra zanger voor hun volgende cd.]]></description>
+    </item>
+    <item>
+      <title>Marting Garrix Animals</title>
+      <pubDate>Wed, 18 Dec 2013 12:04:55 +0100</pubDate>
+      <description><![CDATA[Marting Garrix heeft belooft voor een special act bij animals op ons festival, Be There ! tickets @localhost:28575]]></description>
+    </item>
+    <item>
+      <title>Sam Gooris in de FairyRoom</title>
+      <pubDate>Wed, 18 Dec 2013 12:00:42 +0100</pubDate>
+      <description><![CDATA[Na zijn vorige beslissing om deel te nemen aan ons festival, heeft SAM GOORIS nu ook beslist om nog eens op te treden in de FairyRoom. ]]></description>
+    </item>
+  </channel>
+</rss>

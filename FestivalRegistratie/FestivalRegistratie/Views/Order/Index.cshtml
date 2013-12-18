@@ -1,26 +1,29 @@
-﻿@model IEnumerable<FestivalRegistratie.Models.TicketType>
+﻿@model FestivalRegistratie.Models.DAL.OrderRepository
 
 @{
     ViewBag.Title = "Index";
 }
-
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Overzicht", "Overview");
+}
 <h2>Tickets</h2>
 
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Ticket
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            Prijs
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Available)
+            Beschikbaar
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.tickettypes) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -40,3 +43,11 @@
 }
 
 </table>
+@if (Model.reservation != null && Model.reservation.Number == 0)
+{
+    Html.RenderPartial("_Reserve");
+}
+@if (Model.reservation != null && Model.reservation.Number > 0)
+{
+    Html.RenderPartial("_Complete");
+}

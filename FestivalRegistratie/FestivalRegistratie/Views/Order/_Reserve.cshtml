@@ -1,0 +1,53 @@
+﻿@model FestivalRegistratie.Models.DAL.OrderRepository
+
+<h2>Reserveer</h2>
+
+@using (Html.BeginForm("Create", "Order"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Reservation</legend>
+        <div class="editor-label">
+            Ticket:
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.reservation.Ticket.Name)
+        </div>
+        <div class="editor-label">
+            Voornaam:
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.reservation.FirstName)
+
+        </div>
+
+        <div class="editor-label">
+            Naam:
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.reservation.LastName)
+        </div>
+
+        <div class="editor-label">
+            Email:
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.reservation.Email)
+        </div>
+
+        <div class="editor-label">
+            Aantal:
+        </div>
+        <div class="editor-field">
+            <input id="Number" name="Number" type="number" value="1" min="1" max="@Model.reservation.Ticket.Available" />
+            @Html.ValidationMessageFor(model => model.reservation.Ticket.Available)
+        </div>
+
+        <p>
+            <input type="hidden" id="Id" name="Id" value="@Model.reservation.Ticket.Id" />
+            <input type="submit" value="Reserveer" />
+        </p>
+    </fieldset>
+}

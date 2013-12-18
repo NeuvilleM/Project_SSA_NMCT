@@ -204,6 +204,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\festivalregistratie.xml" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -262,6 +263,7 @@
     <Content Include="Global.asax" />
     <Compile Include="Models\Reservation.cs" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\RSS-logo.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -285,9 +287,7 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
     <Content Include="Images\orderedList2.png" />
@@ -317,9 +317,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
-    <Content Include="Views\Order\Reserve.cshtml" />
     <Content Include="Views\Order\Overview.cshtml" />
+    <Content Include="Views\Order\_Reserve.cshtml" />
+    <Content Include="Views\Order\_Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

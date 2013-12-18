@@ -9,12 +9,61 @@ namespace FestivalRegistratie.Models.DAL
 {
     public class StageRepository
     {
+
+        public List<Stage> stagesDropDown { get; set; }
         public List<Stage> stages { get; set; }
         public List<String> days { get; set; }
         public StageRepository()
         {
             stages = GetStages();
+            stagesDropDown = GetStages();
             days = FestivalRepository.datesFestival();
+        }
+
+        public StageRepository(string stage, string selectedDay)
+        {
+            // vaste members invullen:
+            stagesDropDown = GetStages();
+            days = FestivalRepository.datesFestival();
+            // variabele members zoeken en invullen
+            List<Stage> selectedStages = new List<Stage>();
+            // TODO: Complete membe
+            selectedStages = SearchSelectedLineUps(stage, selectedDay);
+            stages = selectedStages;
+        }
+
+        private List<Stage> SearchSelectedLineUps(string stage, string selectedDay)
+        {
+            List<Stage> stages = GetStages();
+            if (stage != null && stage != "all")
+            {
+                List<Stage> ToRemoveStages = new List<Stage>();
+                foreach (Stage s in stages)
+                {
+                    if (!s.ID.Equals(stage)) { ToRemoveStages.Add(s); }
+                }
+                foreach (Stage s in ToRemoveStages)
+                {
+                    stages.Remove(s);
+                }
+            }
+            if (selectedDay != null && selectedDay != "all")
+            {
+                foreach (Stage s in stages)
+                {
+                    List<lineup> ToRemoveLineups = new List<lineup>();
+                    foreach (lineup l in s.Linups)
+                    {
+                        if (!l.DateOfPlay.Equals(selectedDay)) { ToRemoveLineups.Add(l); }                    
+                    }
+                    foreach(lineup l in ToRemoveLineups)
+                    {
+                        s.Linups.Remove(l);
+                    }
+                
+                }
+            }
+            return stages;
         }
         public static List<Stage> GetStages()
         {   //inladen alle stages
@@ -22,8 +71,12 @@ namespace FestivalRegistratie.Models.DAL
             string stageSql = "SELECT * FROM stages";
             DbDataReader stagereader = Database.GetData(stageSql);
             while (stagereader.Read())
-            { 
-                stages.Add(GetStages(stagereader));            
+            {
+                Stage s = GetStages(stagereader);
+                if (stages.IndexOf(s) < 0)
+                {
+                    stages.Add(s);
+                }    
             }
             stagereader.Close();
             return stages;

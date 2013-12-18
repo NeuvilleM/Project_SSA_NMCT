@@ -1,0 +1,52 @@
+﻿@model FestivalRegistratie.Models.DAL.OrderRepository
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Bestelling:</h2>
+
+<fieldset>
+    <legend>Reservation</legend>
+    <div class="display-label">
+        @*@Html.DisplayNameFor(model => model.FirstName)*@
+        Voornaam:
+
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.reservation.FirstName)
+    </div>
+
+    <div class="display-label">
+        Achternaam:@*@Html.DisplayNameFor(model => model.LastName)*@
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.reservation.LastName)
+    </div>
+
+    <div class="display-label">
+        Email:
+        @*@Html.DisplayNameFor(model => model.Email)*@
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.reservation.Email)
+    </div>
+
+    <div class="display-label">
+        Aantal:
+        @* @Html.DisplayNameFor(model => model.Number)*@
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.reservation.Number)
+    </div>
+    <div class="display-label">
+        Ticket:
+    </div>
+    <div>
+        @Html.DisplayFor(model => model.reservation.Ticket.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Verberg bestelling", "Index")
+</p>
+

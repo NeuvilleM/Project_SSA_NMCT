@@ -4,11 +4,14 @@
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
             @Html.AntiForgeryToken()
             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            <a href="Content/festivalregistratie.xml"><img src="~/Images/RSS-logo.png" width="20px" /></a>
+   
         }
     </text>
 } else {
     <ul>
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+        <li><a href="Content/festivalregistratie.rss"><img src="~/Images/RSS-logo.png" width="20px" /></a></li>
+ </ul>
 }

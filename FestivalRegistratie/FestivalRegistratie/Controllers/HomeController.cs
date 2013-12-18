@@ -10,9 +10,9 @@ namespace FestivalRegistratie.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string stage, string days)
         {
-            var viewModel = new StageRepository();
+            var viewModel = new StageRepository(stage, days);
             //viewModel = StageRepository.GetStages();
             return View("Index", viewModel);
         }

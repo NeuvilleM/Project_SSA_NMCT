@@ -9,6 +9,8 @@ namespace FestivalRegistratie.Models.DAL
 {
     public class OrderRepository
     {
+        public List<TicketType> tickettypes { get; set; }
+        public Reservation reservation { get; set; }
         public static List<TicketType> GetTickets()
         {
             List<TicketType> types = new List<TicketType>();
