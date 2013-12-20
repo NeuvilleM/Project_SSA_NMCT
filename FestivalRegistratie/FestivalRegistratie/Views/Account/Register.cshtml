@@ -1,11 +1,11 @@
 ﻿@model FestivalRegistratie.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Registreer";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>Maak een nieuwe account aan.</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -16,31 +16,31 @@
         <legend>Registration Form</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
+                <label>Gebruikersnaam:</label> <br />
                 @Html.TextBoxFor(m => m.UserName)
             </li>
             <li>
-                @Html.LabelFor(m => m.FirstName)
+                <label>Voornaam: </label><br />
                 @Html.TextBoxFor(m => m.FirstName)
             </li>
             <li>
-                @Html.LabelFor(m => m.UserLastName)
+                <label>Achternaam: </label> <br />
                 @Html.TextBoxFor(m => m.UserLastName)
             </li>
             <li>
-                @Html.LabelFor(m => m.Email)
+                <label>Email: </label><br />
                 @Html.TextBoxFor(m => m.Email)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
+                <label>Wachtwoord: </label><br />
                 @Html.PasswordFor(m => m.Password)
             </li>
             <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
+                <label>Bevestig wachtwoord:</label> <br />
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
         </ol>
-        <input type="submit" value="Register" />
+        <input type="submit" value="Registreer" />
     </fieldset>
 }
 

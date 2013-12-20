@@ -45,6 +45,12 @@
     <div>
         @Html.DisplayFor(model => model.reservation.Ticket.Name)
     </div>
+    <div class="display-label">
+        Totaal:
+    </div>
+    <div>
+        € @Html.DisplayFor(model => model.reservation.TotalCost)
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Verberg bestelling", "Index")

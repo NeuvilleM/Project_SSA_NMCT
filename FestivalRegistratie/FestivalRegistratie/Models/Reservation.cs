@@ -13,5 +13,6 @@ namespace FestivalRegistratie.Models
         public String LastName { get; set; }
         public string Email { get; set; }
         public int Number { get; set; }
+        public int TotalCost { get; set; }
 	}
 }

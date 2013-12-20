@@ -29,7 +29,7 @@
             Ticket
             @*@Html.DisplayNameFor(model => model.Ticket.Name)*@
         </th>
-        <th></th>
+        <th>Totaal:</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -48,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Ticket.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
         </td>
         
     </tr>

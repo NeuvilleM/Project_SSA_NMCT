@@ -12,6 +12,7 @@ body {
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 a {
@@ -102,7 +103,12 @@ h5, h6 {
     background-color: #E2F0D6;
     clear: both;
     padding-bottom: 35px;
+    /*min-height: 425px;*/
+    height: 100%;
 }
+    #body .content-wrapper {
+    min-height: 425px;
+    }
 
     .main-content {
         background: url("../Images/accent.png") no-repeat;

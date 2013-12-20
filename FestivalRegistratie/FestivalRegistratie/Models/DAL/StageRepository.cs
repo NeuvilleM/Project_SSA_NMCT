@@ -149,7 +149,9 @@ namespace FestivalRegistratie.Models.DAL
             DbParameter artistid = Database.AddParameter("@id", id);
             DbDataReader artistreader = Database.GetData(sql, artistid);
             artistreader.Read();
-            return GetArtist(artistreader);
+            Artist a = GetArtist(artistreader);
+            artistreader.Close();
+            return a;
         }
     }
 

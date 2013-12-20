@@ -18,6 +18,7 @@ namespace FestivalRegistratie.Models.DAL
             {
                 reservations.Add(MakeReservation(reservationReader));
             }
+            reservationReader.Close();
             return reservations;
         }
         private static Reservation MakeReservation(DbDataReader reservationReader)
@@ -29,6 +30,7 @@ namespace FestivalRegistratie.Models.DAL
             r.LastName = reservationReader["HolderLast"].ToString();
             r.Number = Convert.ToInt32(reservationReader["Number"].ToString());
             r.Ticket = CreateTicket(reservationReader);
+            r.TotalCost = r.Number * Convert.ToInt32(r.Ticket.Price);
             return r;
         }
         private static TicketType CreateTicket(DbDataReader reservationReader)
@@ -50,7 +52,10 @@ namespace FestivalRegistratie.Models.DAL
             DbParameter tID = Database.AddParameter("@tID", TicketID);
             DbDataReader reader = Database.GetData(sql, tID);
             reader.Read();
-            return (int)reader["NumberOfReservedTickets"];
+            int iReserved = 0;
+            Int32.TryParse(reader["NumberOfReservedTickets"].ToString(), out iReserved);
+            reader.Close();
+            return iReserved;
         }
     }
 }

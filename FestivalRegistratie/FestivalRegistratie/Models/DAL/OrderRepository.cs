@@ -20,6 +20,7 @@ namespace FestivalRegistratie.Models.DAL
             {
                 types.Add(MakeTicket(typesreader));
             }
+            typesreader.Close();
             return types;
         }
         private static TicketType MakeTicket(DbDataReader typesreader)
@@ -41,7 +42,10 @@ namespace FestivalRegistratie.Models.DAL
             DbParameter tID = Database.AddParameter("@tID", TicketID);
             DbDataReader reader = Database.GetData(sql, tID);
             reader.Read();
-            return (int)reader["NumberOfReservedTickets"];
+            int ireserved = 0;
+            Int32.TryParse(reader["NumberOfReservedTickets"].ToString(), out ireserved);
+            reader.Close();
+            return ireserved;
         }
         internal static TicketType GetTicket(string TicketTypeID)
         {
@@ -49,9 +53,10 @@ namespace FestivalRegistratie.Models.DAL
             DbParameter id = Database.AddParameter("@id", TicketTypeID);
             DbDataReader reader = Database.GetData(sql, id);
             reader.Read();
-            return MakeTicket(reader);
+            TicketType t =  MakeTicket(reader);
+            reader.Close();
+            return t;
         }
-
         internal static Reservation UpdateReservationWithUserData(string UserName, string ttID)
         {
             Reservation r = new Reservation();
@@ -63,9 +68,9 @@ namespace FestivalRegistratie.Models.DAL
             r.Email = reader["Email"].ToString();
             r.FirstName = reader["UserFirstName"].ToString();
             r.LastName = reader["UserLastName"].ToString();
+            reader.Close();
             return r;
         }
-
         internal static Reservation SaveTicket(string Number, string Id, string p)
         {
            // Number = reserved tickets
@@ -74,6 +79,7 @@ namespace FestivalRegistratie.Models.DAL
             Reservation r = new Reservation();
             r = UpdateReservationWithUserData(p, Id);
             r.Number = Convert.ToInt32(Number);
+            r.TotalCost = r.Number * Convert.ToInt32(r.Ticket.Price);
             int result = Insert(r);
             return r;
         }

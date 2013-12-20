@@ -27,6 +27,7 @@ namespace FestivalRegistratie.Models.DAL
             string start = festivalreader["Start"].ToString();
             f.Start = Convert.ToDateTime(start);
             f.End = Convert.ToDateTime(festivalreader["End"].ToString());
+            festivalreader.Close();
             return f;
         }
         public static List<String> datesFestival()
