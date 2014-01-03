@@ -38,9 +38,11 @@ namespace FestivalRegistratie.Controllers
             {
                 return View("Index", viewModel);
             }
-            return Index();
+            return RedirectToAction("Action");
 
         }
+        [Authorize]
+        [HttpPost]
         public ActionResult Create(string Number, string Id)
         {
             var viewModel = new OrderRepository();
