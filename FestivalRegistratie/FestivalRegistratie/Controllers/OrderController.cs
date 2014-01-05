@@ -43,6 +43,7 @@ namespace FestivalRegistratie.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(string Number, string Id)
         {
             var viewModel = new OrderRepository();
